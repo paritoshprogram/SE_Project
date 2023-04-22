@@ -1,0 +1,52 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/css/task.css">
+	<title>Task Page</title>
+    <script>
+        
+        var subtasks = document.getElementsByClassName('sub')
+        percent = (subtasks.length/7)*100
+
+        var perc = document.getElementById('per')
+        
+
+
+        perc.style.width = percent+'%'
+        
+
+
+    </script>
+	
+</head>
+<body>
+
+	<div class="task">
+		<h2> <%= task.task_name %></h2>
+		<p><b>Description</b> - <%= task.task_desc %></p>
+		<p><b>Assigned By:</b> <%= task.assigned_by %></p>
+        <p> <div class="percent" id="perce"><div class="percent_c" id="per"></div></div></p>
+
+        <div class="subtask-form">
+            <form action="/api/auth/profile/<%= user%>/tasks/<%= task.task_id%>/add_sub" method="post">
+			<input type="text" class="subtask-input" placeholder="Add Subtask..." id="subtask" name="subtask">
+			<button class="subtask-submit-btn" type="submit">Submit</button>
+        </form>
+		</div>
+        <div class="subtask-list">
+            <h2>Subtasks </h2>
+			<% if (subtasks.length > 0) { %>
+				<% subtasks.forEach(function(subtask) { %>
+                    <div class="sub">
+					<div class="subtask-item"><b>ID : <%= subtask.id%></b>. &nbsp;&nbsp;<%= subtask.subtask_desc %></div>
+                    <div class="but"><form action="/api/auth/profile/<%= user%>/tasks/<%= task.task_id%>/<%= subtask.id%>/check" method="post"><button type="submit" class="done">Done</button></form></div>
+                </div>
+				<% }); %>
+			<% } else { %>
+				<div>No subtasks found.</div>
+			<% } %>
+		</div>
+
+
+	</div>
+</body>
+</html>

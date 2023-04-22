@@ -1,0 +1,131 @@
+
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+form {
+	width: 100%;
+	margin: 20px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 18px;
+}
+
+.button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.button:hover {
+	background-color: #555;
+}
+
+@media (max-width: 767px) {
+	h1, h2 {
+		font-size: 36px;
+	}
+
+	label {
+		font-size: 16px;
+	}
+
+	input[type="text"], input[type="password"] {
+		font-size: 16px;
+		padding: 8px;
+	}
+
+	.button {
+		font-size: 16px;
+		padding: 8px 16px;
+	}
+}
+
+/* Additional styles for the login page */
+
+.container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+form {
+	flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+	margin-bottom: 20px;
+}
+
+.button {
+	margin-top: 20px;
+}
+
+form label {
+	color: #555;
+}
+
+input[type="text"], input[type="password"] {
+	color: #333;
+}
+
+.button:hover {
+	background-color: #444;
+}
+
+@media (min-width: 768px) {
+	.container {
+		padding: 40px;
+	}
+
+	h2 {
+		font-size: 60px;
+		margin-bottom: 40px;
+	}
+
+	input[type="text"], input[type="password"] {
+		width: 80%;
+	}
+
+	.button {
+		padding: 15px 30px;
+	}
+}

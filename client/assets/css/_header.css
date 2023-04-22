@@ -1,0 +1,41 @@
+.nav{
+    font-family: Arial, sans-serif;
+   display: flex;
+   height:8%;
+    background-color: #000000c4;
+    align-items: center;
+    position: relative;
+}
+
+#one{
+    position: relative;
+
+    left:46%;
+
+    font-size: xx-large;
+    font-weight: bolder;
+  
+    color: white;
+
+}
+
+#two{
+    position: relative;
+    left:82%;
+   
+
+}
+
+a{
+    font-weight: bolder;
+    color:white;
+    font-size: large;
+    text-decoration: none;
+}
+
+a:hover{
+
+    color: #d9534f;
+
+}
+

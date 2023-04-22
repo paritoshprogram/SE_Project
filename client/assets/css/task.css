@@ -1,0 +1,122 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.task {
+   position: relative;
+   top: 7%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px #ddd;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.task h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.task p {
+    margin: 10px 0 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.task p strong {
+    font-weight: bold;
+}
+
+.percent{
+    font-size: larger;
+    border-radius:50px;
+    position: relative;
+    left:3%;
+    height: 5%;
+    width:95%;
+    border:1px solid black;
+}
+.percent_c{
+    border-radius:50px;
+height: 100%;
+    width:89%;
+    background-color: #d9534f ;
+}
+
+.subtask-input {
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.subtask-submit-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.subtask-list {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #F2F2F2;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.subtask-item {
+
+    font-size: large;
+    position: relative;
+    left:20%;
+ 
+    margin-top: 2.5%;
+    margin-bottom:2%;
+}
+
+.done{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.but{
+    position: relative;
+    left:60%;
+    margin-top: 2%;
+    
+}
+
+.sub{
+    margin-top: 3%;
+    border-radius: 10px;
+  border:0.5px solid black;
+    display: flex;
+    flex-direction: row;
+}
+

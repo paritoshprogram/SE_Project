@@ -1,0 +1,131 @@
+body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+	color: #333;
+}
+
+h1 {
+	font-size: 48px;
+	text-align: center;
+	margin: 30px 0;
+	text-shadow: 2px 2px #ddd;
+}
+
+h2 {
+	font-size: 36px;
+	margin: 20px 0;
+	color: #666;
+	text-align: center;
+}
+
+.task-list {
+
+   
+
+    background-color: #ece9e9;
+   
+	display: flex;
+	
+	justify-content: space-around;
+	padding: 0 50px;
+    flex-direction: row;
+}
+
+.task {
+
+
+   
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-around;
+	background-color: #fcfbfb;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 20px;
+	flex-basis: calc(50% - 40px);
+	box-shadow: 2px 2px 5px #ddd;
+	transition: all 0.3s ease-in-out;
+}
+
+.task:hover {
+    transform: perspective(500px) translateZ(50px);
+	box-shadow: 3px 3px 8px #ccc;
+}
+
+.task h3 {
+	font-size: 24px;
+	margin: 0;
+	color: #333;
+}
+
+.task p {
+	margin: 15px 0 0;
+	color: #666;
+}
+
+.task-list:after {
+	content: "";
+	flex-basis: calc(50% - 40px);
+}
+
+p {
+	margin: 0;
+}
+
+
+button.accept-btn,
+button.reject-btn,button.swap-btn {
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  margin: 5px;
+}
+
+button.accept-btn {
+  background-color: #5cb85c;
+}
+
+button.reject-btn {
+  background-color: #d9534f;
+}
+button.swap-btn{
+
+    background-color: rgb(233, 233, 16);
+}
+
+button.accept-btn:hover {
+  background-color: #4cae4c;
+}
+.action-buttons{
+
+
+ 
+    position: relative;
+    left:5%;
+
+    height:40%;
+    width:95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+select {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+
+  select.show {
+    display: block;
+  }

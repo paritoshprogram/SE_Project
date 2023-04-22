@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/user_profile.css">
+    <script type="text/javascript">
+
+        const select = document.getElementById('employee-select');
+  const swapButton = document.querySelector('.swap-btn');
+
+  swapButton.addEventListener('click', function() {
+    select.classList.toggle('show');
+  });
+
+    </script>
+	<title>Task Manager</title>
+</head>
+<body>
+	<h1>Tasks for <%= title.username %></h1>
+	<h2>Ongoing Tasks</h2>
+	<% if (ongoingTasks.length > 0) { %>
+		<div class="task-list">
+			<% ongoingTasks.forEach(function(task) { %>
+                <form action="/api/auth/profile/<%= title.username%>/tasks/<%= task.task_id%>" method="get">
+				<div class="task" onclick="this.parentNode.submit()">
+					<h3><%= task.task_name %></h3>
+					<p><%= task.task_desc %></p>
+                    <p><b>Deadline</b> - <%= task.deadline %></p>
+				</div>
+            </form>
+			<% }); %>
+
+		</div>
+	<% } else { %>
+		<p>No ongoing tasks</p>
+	<% } %>
+	<h2>Assigned Tasks</h2>
+	<% if (assignedTasks.length > 0) { %>
+		<div class="task-list">
+			<% assignedTasks.forEach(function(task) { %>
+				<div class="task">
+					<h3><%= task.task_name %></h3>
+					<p> <b>Assigned By - </b><%= task.assigned_by %></p>
+                    
+                    <div class="action-buttons">
+
+                      <form action="/api/auth/profile/<%= title.username%>/tasks/<%= task.task_id%>/delete" method="post">
+						<button class="reject-btn" type="submit">Reject</button>
+                    </form>
+
+                    <form action="/api/auth/profile/<%= title.username%>/tasks/<%= task.task_id%>/add" method="post">
+						<button class="accept-btn">Accept</button>
+                    </form>
+                     
+                    <button class="swap-btn">Swap</button>
+
+
+                    <select id="employee-select">
+                        <% employees.forEach(function(employee) { %>
+                          <option value="<%= employee.id %>"><%= employee.first_name %></option>
+                        <% }); %>
+                      </select>
+                      
+
+                        </div>
+                       
+					</div>
+                
+				</div>
+			<% }); %>
+		</div>
+	<% } else { %>
+		<p>No assigned tasks</p>
+	<% } %>
+</body>
+</html>
+
+

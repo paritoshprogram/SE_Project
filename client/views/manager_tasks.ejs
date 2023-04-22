@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/manager_tasks.css">  
+    </head>
+    <body>
+        <h2>Tasks under <%= man_name %></h2>
+        <% if (tasks.length > 0) { %>
+            <div class="task-list">
+                <% tasks.forEach(function(task) { %>
+                   
+                    <div class="task" >
+                        <h3><%= task.task_name %></h3>
+                        <p><%= task.task_desc %></p>
+                        <p><b>Assigned to : </b><%= task.assigned_to %></p>
+                        <p><b>Deadline</b> - <%= task.deadline %></p>
+                    </div>
+                
+                <% }); %>
+    
+            </div>
+        <% } else { %>
+            <p>No ongoing tasks</p>
+        <% } %>  
+
+        <div class="add-task-container">
+            <h3 class="add-task-header">Add Task</h3>
+            <form action="/api/auth/profile/<%= man_name %>/man_tasks/add-task" method="POST" class="add-task-form">
+                <label for="task_id">Task ID :</label>
+                <input type="text" id="task_id" name="task_id" required>
+                <label for="task_name">Task Name :</label>
+                <input type="text" id="task_name" name="task_name" required>
+    
+                <label for="task_desc">Task Description :</label>
+                <input type="text" id="task_desc" name="task_desc" required>
+
+                <label for="task_ass">Assign To :</label>
+                <input type="text" id="task_ass" name="task_ass" required>
+    
+                <label for="deadline">Deadline :</label>
+                <input type="date" id="deadline" name="deadline" required>
+    
+                <input type="submit" value="Add Task">
+            </form>
+        </div>  
+    </body>
+</html>

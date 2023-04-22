@@ -1,0 +1,49 @@
+<head>
+    <link rel="stylesheet" href="/css/chat.css">
+    
+   <script>
+    const chatBox = document.getElementById('user-chat-box');
+    const chatToggleButton = document.getElementById('open-chat-box-btn');
+    const chatCloseButton = document.getElementById('close-chat-box-btn');
+    
+    // Hide the chat box and show the toggle button
+    function hideChatBox() {
+      chatBox.style.display = 'none';
+      chatToggleButton.style.display = 'block';
+    }
+    
+    // Show the chat box and hide the toggle button
+    function showChatBox() {
+      if (chatBox.style.display === 'none') {
+        chatBox.style.display = 'block';
+        chatToggleButton.style.display = 'none';
+      }
+    }
+    
+    chatCloseButton.addEventListener('click', hideChatBox);
+    chatToggleButton.addEventListener('click', showChatBox);
+    
+   </script>
+</head>
+<div id="user-chat-box">
+    <button id="close-chat-box-btn">X</button>
+    <ul id="chat-messages-list">
+        <li class="other-message">
+            <span>Other Message</span>
+        </li>
+        <li class="self-message">
+            <span>
+                Self Message
+            </span>
+            
+        </li>
+
+    </ul>
+    <div id="chat-message-input-container">
+        <input id="chat-message-input" placeholder="Type message here">
+        <button id="send-message">Send</button>
+    </div>
+
+</div>
+
+<button id="open-chat-box-btn">Chat</button>

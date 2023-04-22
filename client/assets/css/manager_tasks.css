@@ -1,0 +1,129 @@
+body {
+	background-color: #f2f2f2;
+	font-family:'Open Sans', sans-serif;
+	color: #333;
+}
+
+h2 {
+
+    font-family: 'Open Sans', sans-serif;
+	font-size: 36px;
+	margin: 20px 0;
+	color: #666;
+	text-align: center;
+}
+
+.task-list {
+
+   
+
+    background-color: #ece9e9;
+   
+	display: flex;
+	
+	justify-content: space-around;
+	padding: 0 50px;
+    flex-direction: row;
+}
+
+.task {
+
+
+   
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-around;
+	background-color: #fcfbfb;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 20px;
+	flex-basis: calc(50% - 40px);
+	box-shadow: 2px 2px 5px #ddd;
+	transition: all 0.3s ease-in-out;
+}
+
+.task:hover {
+    transform: perspective(500px) translateZ(50px);
+	box-shadow: 3px 3px 8px #ccc;
+}
+
+.task h3 {
+	font-size: 24px;
+	margin: 0;
+	color: #333;
+}
+
+.task p {
+	margin: 15px 0 0;
+	color: #666;
+}
+
+.task-list:after {
+	content: "";
+	flex-basis: calc(50% - 40px);
+}
+
+p {
+	margin: 0;
+}
+
+.add-task-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .add-task-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .add-task-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .add-task-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .add-task-form input[type='text'],
+  .add-task-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .add-task-form input[type='submit'] {
+   
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-task-form input[type='submit']:hover {
+    background-color: #444;
+  }
+  
+

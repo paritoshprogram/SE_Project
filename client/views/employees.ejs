@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employees</title>
+    <link rel="stylesheet" href="/css/employees.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header">Employees</h1>
+      <% employees.forEach(function(employee) { %>
+        <div class="employee-container">
+            <div class="inner">
+          <h2><%= employee.first_name %></h2>
+          <p><strong>Employee ID : </strong> &nbsp;<%= employee.employee_id %></p>
+          <p><strong>Name :</strong> &nbsp; <%= employee.first_name %>&nbsp;<%= employee.last_name %></p>
+          <p><strong>Phone :</strong> &nbsp; <%= employee.phone %></p>
+          <p><strong>Email :</strong> &nbsp; <%= employee.email %></p>
+          <p><strong>Address :</strong> &nbsp; <%= employee.address %></p>
+          <p><strong>KPI :</strong> &nbsp; <%= employee.kpi %></p>
+        </div>
+        </div>
+      <% }); %>
+    </div>
+  </body>
+</html>
