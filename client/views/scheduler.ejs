@@ -1,0 +1,40 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Scheduler</title>
+        <link rel="stylesheet" href="/css/scheduler.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="header">Task Scheduler</h1>
+            <div class="task-list">
+                <h2 class="task-header">Priority Order of Tasks for <%= tasks[0].assigned_to %>:</h2>
+                <% tasks.forEach(function(task) { %>
+                    <div class="task-container">
+                        <div class="task-row">
+                            <div class="task-label"><b>Task ID : </b></div>
+                            <div class="task-value">&nbsp<%= task.task_id %></div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-label"><b>Task Name : </b></div>
+                            <div class="task-value">&nbsp<%= task.task_name %></div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-label"><b>Task Description : </b></div>
+                            <div class="task-value">&nbsp<%= task.task_desc %></div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-label"><b>Days Left : </b></div>
+                            <div class="task-value">&nbsp;<%= task.deadline %></div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-label"><b>Priority : </b></div>
+                            <div class="task-value">&nbsp<%= task.priority %></div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </body>
+</html>

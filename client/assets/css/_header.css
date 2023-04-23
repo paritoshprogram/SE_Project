@@ -7,21 +7,40 @@
     position: relative;
 }
 
+#three{
+    font-size: larger;
+    font-weight: bolder;
+    color:white;
+    position: relative;
+    left: 2%;
+    
+
+}
+#three:hover{
+    color:#d9534f;
+}
 #one{
     position: relative;
 
-    left:46%;
+    color: white;
+    left:37%;
 
     font-size: xx-large;
     font-weight: bolder;
   
-    color: white;
+    
 
+}
+.nav-form{
+    top: 15%;
+    position: relative;
+    left: 2%;
+  
 }
 
 #two{
     position: relative;
-    left:82%;
+    left:72%;
    
 
 }

@@ -1,14 +1,33 @@
 <header>
  
     <link rel="stylesheet" href="/css/_header.css">
+    <% if(title.profile==="manager") {%>
+     <style>
+        #one{
+            left:42%;
+        }
+        #two{
+            left:81%;
+        }
+     </style>
+      
+        <%} %>   
+    
+    <% if(title.username) {%>
     <div class="nav">
-
-        <div id="one">WorkEx</div>
+        <% if(title.profile==="employee") {%>
+        <form class="nav-form" action="/api/auth/profile/<%=title.username%>/scheduler" method="get">
+        <div id="three" onclick="this.parentNode.submit()">Scheduler</div>
+    </form>
+    <%} %>
+        <div id="one"> WorkEx</div>
       <div id="two">
+       
        
           <a href="/api/auth/logout" >Logout</a>
       </div>
 
     </div>
+    <%} %>
      
 </header>

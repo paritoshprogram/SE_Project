@@ -33,7 +33,7 @@ module.exports.login = (req,res,next)=>{
        const isValid = req.body.password === user.password
     
 
-        if(!isValid) return res.status(401).json("Invalid password")
+        if(!isValid) return res.redirect('/api/auth/sign_in')
 
         //CREATE TOKEN
 

@@ -73,9 +73,127 @@ router.get('/profile/:id/employees',(req,res)=>{
 
         console.log(results)
 
-        res.render('employees',{employees:results})
+        sql1 = `SELECT * FROM auth WHERE username= "${req.params.id}"`
+
+        db.query(sql1,(error,results1,fields1)=>{
+
+            if(error) throw error
+
+
+            res.render('employees',{employees:results,title:results1[0]})
+
+        })
+
+       
 
     })
+
+})
+
+router.get('/profile/:id/scheduler',(req,res)=>{
+
+    e_name = req.params.id
+
+const sql = `SELECT * from tasks WHERE assigned_to = "${e_name}"`
+
+db.query(sql,(error,results,fields)=>{
+    if(error) throw error;
+
+    const deadlines = results.map(result => result.deadline.toString())
+
+    const deadlines_ = deadlines.map(dead => dead.slice(4,10))
+
+    const months = {
+        'Jan': '01',
+        'Feb': '02',
+        'Mar': '03',
+        'Apr': '04',
+        'May': '05',
+        'Jun': '06',
+        'Jul': '07',
+        'Aug': '08',
+        'Sep': '09',
+        'Oct': '10',
+        'Nov': '11',
+        'Dec': '12'
+      };
+      
+      const convertedDates = deadlines_.map(date => {
+        const [month, day] = date.split(' ');
+        const monthNum = months[month];
+        return `${monthNum} ${day}`;
+      });
+      
+     console.log(convertedDates)
+
+     cur_date = new Date()
+     cur_date = cur_date.toString()
+     cur_date = cur_date.slice(4,10)
+   
+
+     const [month,day] = cur_date.split(' ')
+     const month_Num = months[month];
+     fin_date = `${month_Num} ${day}`;
+
+     console.log(fin_date)
+
+     for (let i = 0; i < results.length; i++) {
+        // Replace the `deadline` property with the corresponding element from `converted_dates`
+        results[i].deadline = convertedDates[i];
+        
+        if(results[i].deadline[1]>fin_date[1])
+        {
+            //console.log(fin_date.slice(3,5)+" "+results[i].deadline.slice(3,5))
+            days = 30-parseInt(fin_date.slice(3,5))+parseInt(results[i].deadline.slice(3,5))
+            
+        }
+
+        else{
+            days = parseInt(results[i].deadline.slice(3,5))-parseInt(fin_date.slice(3,5))
+        }
+
+        results[i].deadline = days
+
+        console.log(results[i])
+
+      }
+
+
+      results.sort((a, b) => a.deadline - b.deadline);
+
+// Create an empty array to hold the scheduled jobs
+const schedule = [];
+
+// Loop through each object in the `results` array
+for (const job of results) {
+  // Find the latest possible index to insert the job based on its deadline
+  let index = schedule.length;
+  while (index > 0 && schedule[index - 1].deadline >= job.deadline) {
+    index--;
+  }
+
+  // Insert the job at the calculated index
+  schedule.splice(index, 0, job);
+}
+
+// Sort the `schedule` array by priority in descending order
+schedule.sort((a, b) => b.priority - a.priority);
+
+sql1 = `SELECT * FROM auth where username="${req.params.id}"`
+
+db.query(sql1,(error,results1,fields1)=>{
+  if(error)  throw error
+
+  console.log(results1[0].username)
+
+  res.render('scheduler',{tasks:schedule,title:results1[0]})
+})
+
+
+   
+
+})
+
 
 })
 
@@ -88,7 +206,19 @@ router.get('/profile/:id/man_tasks',(req,res)=>{
 
         console.log(results)
 
-        res.render('manager_tasks',{tasks:results,man_name:req.params.id })
+
+        sql1 = `SELECT * FROM auth WHERE username= "${req.params.id}"`
+
+        db.query(sql1,(error,results1,fields1)=>{
+
+            if(error) throw error
+
+
+            res.render('manager_tasks',{tasks:results,man_name:req.params.id,title:results[0] })
+
+        })
+
+        
 
     })
 
@@ -120,7 +250,18 @@ router.get('/profile/:id/tasks/:task_id',(req,res)=>{
         db.query(sql2,[req.params.task_id],(error,results1,fields)=>{
             if(error) throw error;
 
-            res.render('task',{task:results[0],subtasks:results1,user:req.params.id})
+            sql8 = `SELECT * FROM auth WHERE username= "${req.params.id}"`
+
+        db.query(sql8,(error,results8,fields8)=>{
+
+            if(error) throw error
+
+
+            res.render('task',{task:results[0],subtasks:results1,user:req.params.id,title:results8[0]})
+
+        })
+
+           
 
         })
 
